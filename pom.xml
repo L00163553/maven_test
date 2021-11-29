@@ -29,17 +29,27 @@
    <plugins> 
     <plugin> 
      <groupId>org.apache.maven.plugins</groupId> 
-     <artifactId>maven-jar-plugin</artifactId> 
+     <artifactId>maven-compiler-plugin</artifactId> 
      <version>3.8.0</version> 
      <configuration> 
              <release>9</release> 
-             <manifest>
+         </configuration> 
+    </plugin> 
+    <plugin>
+      <!-- Build an executable JAR -->
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.8.0</version>
+      <configuration>
+        <archive>
+          <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>lib/</classpathPrefix>
             <mainClass>mvnSimpleProj.Calculator</mainClass>
           </manifest>
-         </configuration> 
-    </plugin>     
+        </archive>
+      </configuration>
+    </plugin>    
    </plugins> 
   </build>
 </project>
